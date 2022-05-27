@@ -1,14 +1,4 @@
-import requests
-
-TOKEN = "5309976823:AAE8RglgFdx2kOFYrmcYcZOfY1X2JRXFizQ"
-API_URL = "https://api.telegram.org"
-
-with open("offset", "r") as f:
-    LAST_UPDATE = int(f.read())
-
-print("Запрашиваем обновление: " + str(LAST_UPDATE+1))
-updates = requests.get(f"{API_URL}/bot{TOKEN}/getUpdates?offset={LAST_UPDATE+1}").json()
-updates = updates["result"]
+#updates = updates["result"]
 
 
 # for update in updates:
@@ -22,4 +12,4 @@ updates = updates["result"]
 #    requests.get(f"{API_URL}/bot{TOKEN}/sendMessage?chat_id={chat_id}&text={message}")
 #    with open("offset", "w") as f:
 #        f.write(str(update_id))
-#    print("Последнее обновление устаовлено: " + str(update_id+1)
+#    print("Последнее обновление устаовлено:")
