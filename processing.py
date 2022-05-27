@@ -1,3 +1,15 @@
+import requests
+from datetime import datetime, date
+
+
+dt_now = datetime.now()
+d_now = date.today()
+
+
+def processing( )
+
+
+
 #updates = updates["result"]
 
 

@@ -19,6 +19,7 @@ request_url = f"{API_URL}/bot{TOKEN}/getUpdates?offset={LAST_UPDATE+1}"
 
 
 with open(f"logs/{d1}log.log", "a") as f:
+    f.write(d2 + " START - Request" + "\n")
     f.write(d2 + " Запрашиваем обновление: " + str(LAST_UPDATE) + "\n")
     f.write(d2 + " Запрашиваем обновление: " + request_url + "\n")
     f.write(d2 + " Запрашиваем обновление: " + str(requests.get(request_url)) + "\n")
@@ -28,12 +29,15 @@ with open(f"logs/{d1}log.log", "a") as f:
 
 if str(requests.get(request_url)) != "<Response [200]>":
     with open(f"logs/{d1}log.log", "a") as f:
-        f.write(d2 + " STOP Request Errore \n")
+        f.write(d2 + " STOP - Request Errore \n")
 else:
     with open(f"logs/{d1}log.log", "a") as f:
-        f.write(d2 + " Start processing \n")
+        f.write(d2 + " START - processing \n")
 
+        updates = requests.get(request_url).json()
 
-
-
-
+    if len(updates["result"]) == 0:
+        with open(f"logs/{d1}log.log", "a") as f:
+            f.write(d2 + " Обновленией нет. STOP - Processing \n")
+    else:
+        print("Полный ответ ответ")
