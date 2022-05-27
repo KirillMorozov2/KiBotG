@@ -1,13 +1,14 @@
 import requests
-from datetime import datetime, date
+request_url = "https://api.telegram.org/bot5309976823:AAE8RglgFdx2kOFYrmcYcZOfY1X2JRXFizQ/getUpdates"
+updates = requests.get(request_url).json()
 
+r = updates["result"][0]
+m1 = updates["result"][0]["message"]["message_id"]
+m2 = updates["result"][1]["message"]["message_id"]
 
-dt_now = datetime.now()
-d_now = date.today()
-
-
-def processing( )
-
+print(r)
+print(m1)
+print(m2)
 
 
 #updates = updates["result"]
